@@ -1,14 +1,14 @@
 # vue-music
 
-> 音乐播放器
+> 慕课网vue2音乐播放器
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-npm install
+npm install (建议使用cnpm)
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8989
 npm run dev
 
 # build for production with minification
