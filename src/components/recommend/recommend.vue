@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend">
+  <div class="recommend" ref="recommend">
     <scroll ref="scroll" class="recommend-content" :data="discLists">
       <div>
         <div class="slider-wrapper">
@@ -43,7 +43,10 @@
     ERR_OK
   } from "api/config";
   import Scroll from 'base/scroll/scroll';
+  import {playlistMixin} from 'common/js/mixin'
+
   export default {
+    mixins: [playlistMixin],
     data() {
       return {
         recommends: [],
@@ -55,14 +58,19 @@
       this._getDiscList();
     },
     methods: {
+      handlePlaylist(playlist) {
+        const bottom = playlist.length > 0 ? '60px' : ''
+        this.$refs.recommend.style.bottom = bottom
+        this.$refs.scroll.refresh()
+      },
       _getRecommend() {
         getRecommend().then(res => {
           if (res.code === ERR_OK) {
-            this.recommends = res.data.slider;
+            this.recommends = res.data.slider
           } else {
-            console.log("error");
+            console.log('error')
           }
-        });
+        })
       },
       _getDiscList() {
         getDiscList().then(res => {
@@ -86,7 +94,7 @@
       Scroll,
       Loading
     }
-  };
+  }
 
 </script>
 

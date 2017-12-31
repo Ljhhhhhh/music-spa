@@ -32,6 +32,7 @@
   import {
     getData
   } from "common/js/dom";
+
   const ANCHOR_HEIGHT = 18;
   const TITLE_HEIGHT = 30
   export default {
@@ -68,8 +69,11 @@
       }
     },
     methods: {
-      selectItem(item){
-        this.$emit('select',item)
+      selectItem(item) {
+        this.$emit('select', item)
+      },
+      refresh() {
+        this.$refs.listview.refresh()
       },
       scroll(pos) {
         this.scrollY = pos.y
