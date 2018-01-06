@@ -15,7 +15,7 @@
         <div class="list-wrapper">
           <scroll ref="songList" class="list-scroll" v-if="currentIndex===0" :data="playHistory">
             <div class="list-inner">
-              <song-list :songs="playH" @select="selectSong"></song-list> <!--playHistory-->
+              <song-list :songs="playHistory" @select="selectSong"></song-list> <!--playHistory-->
             </div>
           </scroll>
           <scroll :refreshDelay="refreshDelay" ref="searchList" class="list-scroll" v-show="currentIndex===1" :data="searchHistory">
